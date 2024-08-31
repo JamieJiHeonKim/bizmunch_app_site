@@ -1,0 +1,26 @@
+{
+    "build": {
+      "production": {
+        "distribution": "store",
+        "android": {
+          "buildType": "apk"
+        },
+        "ios": {
+          "simulator": false
+        }
+      },
+      "development": {
+        "distribution": "internal",
+        "android": {
+          "buildType": "apk"
+        },
+        "ios": {
+          "simulator": true
+        }
+      }
+    },
+    "submit": {
+      "production": {}
+    }
+  }
+  
