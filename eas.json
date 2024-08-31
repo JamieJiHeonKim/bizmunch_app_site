@@ -2,6 +2,11 @@
     "build": {
       "production": {
         "distribution": "store",
+        "releaseChannel": "production",
+        "developmentClient": false,
+        "env": {
+          "API_URL": "https://app.bizmunch.com"
+        },
         "android": {
           "buildType": "apk"
         },
@@ -11,6 +16,7 @@
       },
       "development": {
         "distribution": "internal",
+        "developmentClient": true,
         "android": {
           "buildType": "apk"
         },
@@ -20,7 +26,11 @@
       }
     },
     "submit": {
-      "production": {}
+      "production": {
+        "android": {
+          "track": "production"
+        }
+      }
     }
   }
   
