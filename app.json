@@ -37,11 +37,6 @@
         "projectId": "682f6094-ada1-4670-a0ce-80f80929ef69"
       }
     },
-    "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/auth",
-      "@react-native-firebase/firestore"
-    ],
     "hooks": {
       "postPublish": [
         {
