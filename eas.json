@@ -1,38 +1,37 @@
 {
-    "build": {
-      "production": {
-        "distribution": "store",
-        "releaseChannel": "production",
-        "developmentClient": false,
-        "env": {
-          "API_URL": "https://app.bizmunch.com"
-        },
-        "android": {
-          "buildType": "apk",
-          "image": "latest"
-        },
-        "ios": {
-          "simulator": false,
-          "image": "latest"
-        }
+  "build": {
+    "production": {
+      "distribution": "store",
+      "releaseChannel": "production",
+      "developmentClient": false,
+      "env": {
+        "API_URL": "https://app.bizmunch.com"
       },
-      "development": {
-        "distribution": "internal",
-        "developmentClient": true,
-        "android": {
-          "buildType": "apk"
-        },
-        "ios": {
-          "simulator": true
-        }
+      "android": {
+        "buildType": "apk",
+        "image": "latest"
+      },
+      "ios": {
+        "simulator": false,
+        "image": "latest"
       }
     },
-    "submit": {
-      "production": {
-        "android": {
-          "track": "production"
-        }
+    "development": {
+      "distribution": "internal",
+      "developmentClient": true,
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "production"
       }
     }
   }
-  
+}
