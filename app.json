@@ -1,13 +1,12 @@
 {
   "expo": {
-    "name": "bizmunch",
+    "name": "BizMunch",
     "slug": "bizmunch",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/bizmunch-icon-grey.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/bizmunch-icon-grey.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,40 +14,45 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*",
-      "assets/*"
+      "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.yourappname",
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "This app uses your location to show nearby restaurants."
-      },
-      "config": {
-        "usesNonExemptEncryption": false
-      }
+      "bundleIdentifier": "com.yourcompany.bizmunch",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "permissions": [
-        "ACCESS_FINE_LOCATION"
-      ],
+      "package": "com.yourcompany.bizmunch",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.bizmunch"
+        "backgroundColor": "#FFFFFF"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-secure-store"
-    ],
     "extra": {
       "eas": {
         "projectId": "682f6094-ada1-4670-a0ce-80f80929ef69"
       }
     },
-    "owner": "jamiejiheonkim"
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      "@react-native-firebase/firestore"
+    ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "your-organization",
+            "project": "bizmunch",
+            "authToken": "asdfhjb2k13jh41234wevrqwekrhjsadv"
+          }
+        }
+      ]
+    }
   }
 }

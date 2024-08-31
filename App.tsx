@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { registerRootComponent } from 'expo';
 import { StatusBar, View, ActivityIndicator, StyleSheet, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -6,13 +7,13 @@ import * as NavigationBar from 'expo-navigation-bar';
 import { AuthProvider, useAuth } from './app/context/AuthContext';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import AppNavigator from './app/navigation/AppNavigator';
-import logoIcon from './assets/bizmunch-icon-white.png';
+import logoIcon from './assets/bizmunch-icon-white.png'; // Ensure the path to this image is correct
 
 const Stack = createStackNavigator();
 
 const App = () => {
   const { authState, loading } = useAuth();
-  
+
   useEffect(() => {
     StatusBar.setBackgroundColor('#121212');
     StatusBar.setBarStyle('light-content');
@@ -56,8 +57,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => (
+const AppContainer = () => (
   <AuthProvider>
     <App />
   </AuthProvider>
 );
+
+registerRootComponent(AppContainer);

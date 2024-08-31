@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 project.ext.react = [
-  enableHermes: false  // Disable Hermes
+  enableHermes: true  // Disable Hermes
 ]
 
 buildscript {
@@ -10,7 +10,7 @@ buildscript {
         minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '23')
         compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '34')
         targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
-        kotlinVersion = findProperty('android.kotlinVersion') ?: '1.9.23'
+        kotlinVersion = findProperty('android.kotlinVersion') ?: '1.6.10'
 
         ndkVersion = "26.1.10909125"
     }
