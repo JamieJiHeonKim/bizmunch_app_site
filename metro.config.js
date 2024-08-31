@@ -7,16 +7,10 @@ const blacklist = require('metro-config/src/defaults/exclusionList');
  *
  * @type {import('metro-config').MetroConfig}
  */
-const config = {
-  resolver: {
-    assetExts: ['bin', 'txt', 'jpg', 'png', 'ttf'],
-    sourceExts: ['js', 'json', 'ts', 'tsx', 'jsx'],
-    blacklistRE: blacklist([/platform_node/]),
-  },
-};
-
 module.exports = (async () => {
   const config = await getDefaultConfig(__dirname);
-  config.resolver.assetExts.push('png', 'jpg', 'jpeg');
+  config.resolver.assetExts = ['bin', 'txt', 'jpg', 'png', 'ttf', 'jpeg'];
+  config.resolver.sourceExts = ['js', 'json', 'ts', 'tsx', 'jsx'];
+  config.resolver.blacklistRE = blacklist([/platform_node/]);
   return config;
 })();

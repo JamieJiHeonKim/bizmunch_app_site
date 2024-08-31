@@ -1,13 +1,12 @@
 {
   "expo": {
-    "name": "bizmunch",
+    "name": "BizMunch",
     "slug": "bizmunch",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/bizmunch-icon-grey.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/bizmunch-icon-grey.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,40 +14,24 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*",
-      "assets/*"
+      "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.yourappname",
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "This app uses your location to show nearby restaurants."
-      },
-      "config": {
-        "usesNonExemptEncryption": false
-      }
+      "supportsTablet": true
     },
     "android": {
-      "permissions": [
-        "ACCESS_FINE_LOCATION"
-      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.bizmunch"
+        "backgroundColor": "#FFFFFF"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-secure-store"
-    ],
     "extra": {
       "eas": {
         "projectId": "682f6094-ada1-4670-a0ce-80f80929ef69"
       }
-    },
-    "owner": "jamiejiheonkim"
+    }
   }
 }
