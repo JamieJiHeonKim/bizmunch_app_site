@@ -8,10 +8,12 @@
           "API_URL": "https://app.bizmunch.com"
         },
         "android": {
-          "buildType": "apk"
+          "buildType": "apk",
+          "image": "latest"
         },
         "ios": {
-          "simulator": false
+          "simulator": false,
+          "image": "latest"
         }
       },
       "development": {
