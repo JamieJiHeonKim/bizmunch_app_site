@@ -38,7 +38,7 @@ const RestaurantDetail = ({ route }: { route: { params: { restaurant: Restaurant
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/restaurant/${restaurant._id}/menu`);
+                const response = await axios.get(`${process.env.API_URL}/restaurant/${restaurant._id}/menu`);
                 const data = response.data;
 
                 if (response.status === 404 && data.message) {

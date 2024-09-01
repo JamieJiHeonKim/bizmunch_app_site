@@ -7,7 +7,7 @@ import * as NavigationBar from 'expo-navigation-bar';
 import { AuthProvider, useAuth } from './app/context/AuthContext';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import AppNavigator from './app/navigation/AppNavigator';
-import logoIcon from './assets/bizmunch-icon-white.png'; // Ensure the path to this image is correct
+import logoIcon from './assets/bizmunch-icon-white.png';
 
 const Stack = createStackNavigator();
 

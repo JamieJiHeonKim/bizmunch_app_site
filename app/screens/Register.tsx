@@ -22,7 +22,7 @@ const Register = ({ navigation }: { navigation: any }) => {
 
     const validateInvitationCode = async (invitationCode: string) => {
         try {
-            const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/company/validate-invitation-code/${invitationCode}`);
+            const response = await axios.get(`${process.env.API_URL}/company/validate-invitation-code/${invitationCode}`);
             setCompany(response.data.name);
             return response.data;
         } catch (error) {
