@@ -84,7 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             await AsyncStorage.setItem('authState', JSON.stringify({ ...authState, pinnedRestaurants: newPinned }));
             setAuthState(prevState => ({ ...prevState, pinnedRestaurants: newPinned }));
     
-            await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/update-favorites`, {
+            await axios.post(`${process.env.API_URL}/users/update-favorites`, {
                 userId: authState.user?.id,
                 restaurantIds: newPinned
             });
@@ -102,7 +102,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         password: string
     ): Promise<AuthResponse> => {
         try {
-            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/register`, {
+            const response = await axios.post(`${process.env.API_URL}/users/register`, {
                 firstName,
                 lastName,
                 email,
@@ -134,12 +134,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const onLogin = async (email: string, password: string): Promise<AuthResponse> => {
         try {
-            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/auth`, { email, password });
+            const response = await axios.post(`${process.env.API_URL}/users/auth`, { email, password });
             if (response.data && response.data.token) {
                 const { token, user, pinnedRestaurants } = response.data;
     
                 // // Fetch pinned restaurants on login
-                // const pinnedRestaurantsResponse = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/users/get-pinned-restaurants/${user.id}`);
+                // const pinnedRestaurantsResponse = await axios.get(`${process.env.API_URL}/users/get-pinned-restaurants/${user.id}`);
                 
                 const newState = {
                     token,
@@ -170,7 +170,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     
         try {
-            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/update-password`, {
+            const response = await axios.post(`${process.env.API_URL}/users/update-password`, {
                 userId: authState.user.id,
                 email: authState.user.email,
                 currentPassword: currentPassword,

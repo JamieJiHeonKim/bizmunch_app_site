@@ -25,12 +25,12 @@
       "package": "com.bizmunch.bizmunch",
       "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/bizmunch-icon-grey.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/bizmunch-icon-grey.png"
     },
     "extra": {
       "eas": {

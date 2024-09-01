@@ -18,7 +18,7 @@ const VerifyEmail = ({ route, navigation }: { route: any, navigation: any }) => 
         }
         try {
             setLoading(true);
-            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/verify-email`, { userId, otp });
+            const response = await axios.post(`${process.env.API_URL}/users/verify-email`, { userId, otp });
             setLoading(false);
 
             if (response.data && response.status === 200) {
