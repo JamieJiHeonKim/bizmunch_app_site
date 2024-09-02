@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SafeAreaView, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, ScrollView, Platform, Alert, Modal } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import logo from '../../assets/bizmunch-icon-white.png';
 import info from '../../assets/question.png';
@@ -22,7 +21,7 @@ const Register = ({ navigation }: { navigation: any }) => {
 
     const validateInvitationCode = async (invitationCode: string) => {
         try {
-            const response = await axios.get(`${process.env.API_URL}/company/validate-invitation-code/${invitationCode}`);
+            const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/company/validate-invitation-code/${invitationCode}`);
             setCompany(response.data.name);
             return response.data;
         } catch (error) {
@@ -141,7 +140,7 @@ const Register = ({ navigation }: { navigation: any }) => {
                         onChangeText={setInvitation}
                         placeholderTextColor='#BDBDBD'
                         value={invitation}
-                        autoCapitalize="none"
+                        autoCapitalize='none'
                     />
                     {errors.email && <Text style={styles.errorText}>{errors.invitation}</Text>}
                     <TextInput 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, ScrollView, Platform, Alert, SafeAreaView } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useAuth } from '../context/AuthContext';
@@ -57,6 +57,10 @@ const Login = () => {
         navigation.navigate('Register');
     };
 
+    const navigateToForgotPassword = () => {
+        navigation.navigate('ForgotPassword');
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -79,6 +83,7 @@ const Login = () => {
                         value={password}
                         autoCapitalize='none'
                     />
+
                     <TouchableOpacity onPress={handleLogin} style={styles.button}>
                         <Text style={styles.buttonText}>Sign In</Text>
                     </TouchableOpacity>
@@ -130,7 +135,19 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         padding: 10,
         backgroundColor: '#36393e',
-        color: '#E0E0E0',
+        color: '#FFFAFA',
+    },
+    buttonRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    smallButton: {
+        paddingBottom: 10,
+    },
+    smallButtonText: {
+        color: '#FFFAFA',
+        fontSize: 14,
     },
     button: {
         width: '100%',
@@ -140,10 +157,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#c65102',
         marginTop: 10,
-        marginBottom: 10,
     },
     buttonText: {
-        color: "#E0E0E0",
+        color: "#FFFAFA",
         fontSize: 16,
         fontWeight: 'bold',
     }
