@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "BizMunch",
-    "slug": "bizmunch",
+    "name": "Biz MuncH",
+    "slug": "Biz MuncH",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/bizmunch-icon-grey.png",
@@ -43,8 +43,8 @@
         {
           "file": "sentry-expo/upload-sourcemaps",
           "config": {
-            "organization": "bizmunch",
-            "project": "bizmunch",
+            "organization": "Biz MuncH",
+            "project": "Biz MuncH",
             "authToken": "asdfhjb2k13jh41234wevrqwekrhjsadv"
           }
         }
