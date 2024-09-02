@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Biz MuncH",
-    "slug": "Biz MuncH",
+    "slug": "bizmunch",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/bizmunch-icon-grey.png",
