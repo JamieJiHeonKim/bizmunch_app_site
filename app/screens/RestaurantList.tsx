@@ -23,14 +23,15 @@ interface Restaurant {
 }
 
 const categories: Category[] = [
-  { id: '1', name: 'Diner', icon: 'silverware-fork-knife' },
-  { id: '2', name: 'Sandwich', icon: 'food' },
-  { id: '3', name: 'Pizza', icon: 'pizza' },
-  { id: '4', name: 'Asian', icon: 'rice' },
-  { id: '5', name: 'Vegie', icon: 'leaf' },
-  { id: '6', name: 'Café', icon: 'coffee' },
-  { id: '7', name: 'Spicy', icon: 'chili-hot' },
-  { id: '8', name: 'Drink', icon: 'cup' },
+  { id: '1', name: 'Asian', icon: 'rice' },
+  { id: '2', name: 'Fastfood', icon: 'hamburger' },
+  { id: '3', name: 'Café', icon: 'coffee' },
+  { id: '4', name: 'Grill', icon: 'grill' },
+  { id: '5', name: 'Vegetarian', icon: 'leaf' },
+  { id: '6', name: 'Spicy', icon: 'chili-hot' },
+  { id: '7', name: 'American', icon: 'silverware-fork-knife' },
+  { id: '8', name: 'Pizza', icon: 'pizza' },
+  { id: '9', name: 'Dessert', icon: 'ice-cream' }
 ];
 
 const RestaurantList = () => {
