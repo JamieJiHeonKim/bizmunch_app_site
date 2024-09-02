@@ -10,6 +10,7 @@ type RootStackParamList = {
     Login: undefined;
     Register: undefined;
     Home: undefined;
+    ForgotPassword: undefined;
 };
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
@@ -83,6 +84,14 @@ const Login = () => {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={navigateToRegister} style={styles.button}>
                         <Text style={styles.buttonText}>Create Account</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        onPress={() => navigation.navigate('ForgotPassword')}
+                        style={{ alignSelf: 'flex-end', marginBottom: 10 }}
+                    >
+                        <Text style={{ color: '#c65102' }}>
+                            Forgot Password?
+                        </Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
