@@ -1,53 +1,54 @@
-import React, { useState, useRef, createRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import API_URL from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
-const VerifyEmail = ({ route, navigation }: { route: any, navigation: any }) => {
-    const [otp, setOtp] = useState('');
-    const [loading, setLoading] = useState(false);
-    
-    const { userId } = route.params;
+const ForgotPasswordVerify = ({ navigation, route }: { navigation: any, route: any }) => {
+    const { email, newPassword } = route.params;
+    const [verificationCode, setVerificationCode] = useState('');
+    const { setLoading } = useAuth();
 
     const handleVerifyEmail = async () => {
-        if (!otp || otp.length !== 7) {
-            Alert.alert('Error', 'Please enter the 7-digit OTP.');
+        if (!verificationCode) {
+            Alert.alert('Error', 'Please enter the verification code.');
             return;
         }
+
         try {
             setLoading(true);
-            const response = await axios.post(`${process.env.API_URL}/users/verify-email`, { userId, otp });
+            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/verify-forgot-password`, {
+                email,
+                newPassword,
+                verificationCode,
+            });
             setLoading(false);
 
             if (response.data && response.status === 200) {
-                Alert.alert('Success', 'Email verified successfully!');
+                Alert.alert('Success', 'Your password has been reset successfully.');
                 navigation.navigate('Login');
             } else {
-                Alert.alert('Verification Error', response.data.message || 'Failed to verify email. Please try again.');
+                Alert.alert('Verification Error', response.data.message || 'Failed to verify. Please try again.');
             }
         } catch (error) {
             setLoading(false);
             console.log('Email verification error:', error);
-            Alert.alert('Verification Error', 'Failed to verify email. Please try again.');
+            Alert.alert('Verification Error', 'Failed to verify. Please try again.');
         }
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.instructions}>Please enter the code sent to your email:</Text>
+            <Text style={styles.instructions}>Please enter the code sent to your email</Text>
             <TextInput
                 style={styles.input}
-                keyboardType="numeric"
-                value={otp}
-                onChangeText={setOtp}
-                maxLength={7}
-                placeholder="1234567"
+                value={verificationCode}
+                onChangeText={setVerificationCode}
+                placeholder="Enter verification code"
                 placeholderTextColor="#BDBDBD"
+                keyboardType="number-pad"
             />
-            <TouchableOpacity onPress={handleVerifyEmail} style={styles.button} disabled={loading}>
-                <Text style={styles.buttonText}>{loading ? 'Verifying...' : 'Verify Email'}</Text>
+            <TouchableOpacity onPress={handleVerifyEmail} style={styles.button}>
+                <Text style={styles.buttonText}>Verify Email</Text>
             </TouchableOpacity>
         </View>
     );
@@ -90,4 +91,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default VerifyEmail;
+export default ForgotPasswordVerify;

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, ScrollView, View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image, Modal } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import info from '../../assets/question.png';
 
 const UserSettings = ({ navigation }: { navigation: any }) => {
     const { authState, onUserPasswordUpdate } = useAuth();
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
 
     const handleUpdatePassword = async () => {
         if (!currentPassword || !newPassword || !confirmPassword) {
@@ -64,8 +66,36 @@ const UserSettings = ({ navigation }: { navigation: any }) => {
                             placeholderTextColor="#666"
                             onChangeText={setCurrentPassword}
                             value={currentPassword}
+                            autoCapitalize="none"
                         />
                     </View>
+                    <View style={styles.iconContainer}>
+                        <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.infoButton}>
+                            <Image source={info} style={styles.icon} />
+                        </TouchableOpacity>
+                    </View>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                            setModalVisible(!modalVisible);
+                        }}
+                    >
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>Password Requirements:</Text>
+                                <Text style={styles.modalText}>- Must be at least 8 characters long.</Text>
+                                <Text style={styles.modalText}>- Must include at least one special character.</Text>
+                                <TouchableOpacity
+                                    style={[styles.button, styles.buttonClose]}
+                                    onPress={() => setModalVisible(!modalVisible)}
+                                >
+                                    <Text style={styles.textStyle}>Close</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </Modal>
                     <View style={styles.infoBlock}>
                         <Text style={styles.label}>New Password</Text>
                         <TextInput
@@ -75,6 +105,7 @@ const UserSettings = ({ navigation }: { navigation: any }) => {
                             placeholderTextColor="#666"
                             onChangeText={setNewPassword}
                             value={newPassword}
+                            autoCapitalize="none"
                         />
                     </View>
                     <View style={styles.infoBlock}>
@@ -86,6 +117,7 @@ const UserSettings = ({ navigation }: { navigation: any }) => {
                             placeholderTextColor="#666"
                             onChangeText={setConfirmPassword}
                             value={confirmPassword}
+                            autoCapitalize="none"
                         />
                     </View>
                     <TouchableOpacity style={styles.button} onPress={handleUpdatePassword}>
@@ -146,6 +178,53 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    infoButton: {
+        position: 'absolute',
+        top: 0,
+        right: 10,
+        zIndex: 1,
+    },
+    icon: {
+        width: 18,
+        height: 18,
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+    },
+    buttonClose: {
+        backgroundColor: '#2196F3',
+        width: 70,
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    iconContainer: {
+        alignItems: 'flex-end',
+    }
 });
 
 export default UserSettings;

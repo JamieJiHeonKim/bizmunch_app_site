@@ -141,6 +141,7 @@ const Register = ({ navigation }: { navigation: any }) => {
                         onChangeText={setInvitation}
                         placeholderTextColor='#BDBDBD'
                         value={invitation}
+                        autoCapitalize="none"
                     />
                     {errors.email && <Text style={styles.errorText}>{errors.invitation}</Text>}
                     <TextInput 
