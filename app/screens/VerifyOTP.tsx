@@ -11,7 +11,7 @@ const VerifyOTP = () => {
     const [otp, setOtp] = useState<string>('');
 
     const handleVerifyOtp = async () => {
-        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/verify-otp`, {
+        const response = await fetch(`${process.env.API_URL}/users/verify-otp`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp })

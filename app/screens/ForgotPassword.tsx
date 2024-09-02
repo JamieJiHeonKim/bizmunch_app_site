@@ -26,7 +26,7 @@ const ForgotPassword = ({ navigation }: { navigation: any }) => {
 
         try {
             setLoading(true);
-            const response = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/users/forgot-password`, { email, newPassword });
+            const response = await axios.post(`${process.env.API_URL}/users/forgot-password`, { email, newPassword });
             setLoading(false);
 
             if (response.data && response.status === 200) {
