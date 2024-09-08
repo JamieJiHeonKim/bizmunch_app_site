@@ -147,8 +147,8 @@ const RestaurantDetail = ({ route }: { route: { params: { restaurant: Restaurant
                                 <Text style={styles.modalItemDetail}>${selectedItem.price}</Text>
                                 <Text style={styles.modalSectionTitle}>Calories</Text>
                                 <Text style={styles.modalItemDetail}>{selectedItem.calories}</Text>
-                                <Text style={styles.modalSectionTitle}>Ingredients</Text>
-                                <Text style={styles.modalItemDetail}>{selectedItem.ingredients.join(', ')}</Text>
+                                <Text style={styles.modalSectionTitle}>Description</Text>
+                                <Text style={styles.modalItemDetail}>{selectedItem.ingredients}</Text>
                                 <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
                                     <Text style={styles.closeButtonText}>Close</Text>
                                 </TouchableOpacity>
