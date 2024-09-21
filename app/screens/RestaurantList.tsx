@@ -59,23 +59,10 @@ const RestaurantList = () => {
     navigation.navigate('RestaurantDetails', { restaurant });
   };
 
-  // useEffect(() => {
-  //   const fetchRestaurants = async () => {
-  //     try {
-  //       const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/restaurant/allrestaurants`);
-  //       setRestaurants(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching restaurants:', error);
-  //     }
-  //   };
-
-  //   fetchRestaurants();
-  // }, []);
-
   useEffect(() => {
     const fetchRotatedRestaurants = async () => {
         try {
-            const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/users/rotated-restaurants/${authState.user?.id}`);
+            const response = await axios.get(`${process.env.API_URL}/users/rotated-restaurants/${authState.user?.id}`);
             setRestaurants(response.data);
         } catch (error) {
             console.log('Error fetching rotated restaurants:', error);
