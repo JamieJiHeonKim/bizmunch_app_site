@@ -5,7 +5,6 @@ import RestaurantCard from '../components/RestaurantCard';
 import CategoryItem from './CategoryItem';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface Category {
   id: string;
@@ -19,7 +18,7 @@ interface Restaurant {
   name: string;
   category: string;
   location: string;
-  barcode: string;
+  // barcode: string;
 }
 
 const categories: Category[] = [
@@ -63,7 +62,7 @@ const RestaurantList = () => {
   // useEffect(() => {
   //   const fetchRestaurants = async () => {
   //     try {
-  //       const response = await axios.get(`${process.env.API_URL}/restaurant/allrestaurants`);
+  //       const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/restaurant/allrestaurants`);
   //       setRestaurants(response.data);
   //     } catch (error) {
   //       console.error('Error fetching restaurants:', error);
@@ -76,7 +75,7 @@ const RestaurantList = () => {
   useEffect(() => {
     const fetchRotatedRestaurants = async () => {
         try {
-            const response = await axios.get(`${process.env.API_URL}/users/rotated-restaurants/${authState.user?.id}`);
+            const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/users/rotated-restaurants/${authState.user?.id}`);
             setRestaurants(response.data);
         } catch (error) {
             console.log('Error fetching rotated restaurants:', error);
