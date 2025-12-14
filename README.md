@@ -452,13 +452,12 @@ All API calls are made directly in screens and AuthContext. Key routes:
 ## Screen Shots
 
 Here are some screenshots of the Biz MuncH mobile app in action:
+**Images are placeholders and they don't represent real menu photo, nor does it match real price**
 
 <div align="center">
 
-### Login & Authentication Flow
+### Restaurant List
 <img src="assets/Screenshot_20251213-165113_Biz_MuncH.jpg" width="250" alt="Login Screen" />
-
-### Home Screen & Restaurant List
 <img src="assets/Screenshot_20251213-165119_Biz_MuncH.jpg" width="250" alt="Restaurant List" />
 <img src="assets/Screenshot_20251213-165134_Biz_MuncH.jpg" width="250" alt="Restaurant List with Categories" />
 
@@ -470,7 +469,7 @@ Here are some screenshots of the Biz MuncH mobile app in action:
 <img src="assets/Screenshot_20251213-165210_Biz_MuncH.jpg" width="250" alt="Menu Sections" />
 <img src="assets/Screenshot_20251213-165219_Biz_MuncH.jpg" width="250" alt="Item Detail Modal" />
 
-### Additional Features
+### Settings
 <img src="assets/Screenshot_20251213-165225_Biz_MuncH.jpg" width="250" alt="Additional Features" />
 
 </div>
